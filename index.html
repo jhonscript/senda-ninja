@@ -57,6 +57,11 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
 .card svg{width:34px;height:34px}
 .card b{display:block;font-size:15px;margin-top:2px}
 .card i{display:block;font-style:normal;font-size:11.5px;color:var(--mut)}
+.cards.pairs{flex-wrap:wrap;align-items:center}
+.cards.pairs .card.sm{flex:none;width:calc(50% - 14px);margin:3px 0;display:flex;align-items:center;text-align:left;padding:6px 8px}
+.cards.pairs .card.sm svg{width:24px;height:24px;flex:none;margin-right:7px}
+.cards.pairs .card.sm b{font-size:14px;margin:0}.cards.pairs .card.sm i{font-size:11px;margin-left:auto}
+.cards.pairs .yy{width:28px;text-align:center;color:var(--mut);font-size:15px}
 .note{font-size:13px;color:var(--ink);opacity:.86;line-height:1.35;min-height:36px;margin:8px 2px 0;text-align:center}
 .chips{display:flex}
 .chip{flex:1;margin-left:8px;height:40px;border-radius:11px;background:var(--panel2);border:2px solid transparent;font-size:14px;font-weight:700;pointer-events:auto}
@@ -105,6 +110,14 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
 .lb.me .hb i{background:#fff}
 .lb.mob .hb i{background:#ffa53d}.lb.mob .nm{font-size:10px}.lb.mob.big{width:84px;margin-left:-42px}.lb.mob.big .hb{height:7px}
 .lb .st{font-size:10px;font-weight:800;color:#ffd0c7;text-shadow:0 1px 2px #000}
+.lb.hunt{width:110px;margin-left:-55px}.lb.hunt .st{font-size:11.5px;font-weight:900;white-space:nowrap;animation:pulse .6s ease-in-out infinite alternate}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.12)}}
+#edge{position:absolute;left:0;top:0;width:50px;height:50px;margin:-25px 0 0 -25px;border-radius:50%;background:rgba(13,18,30,.82);border:2px solid currentColor;will-change:transform}
+#edge .rot{position:absolute;left:0;top:0;width:100%;height:100%}
+#edge .rot i{position:absolute;left:50%;top:-11px;margin-left:-8px;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:11px solid currentColor}
+#edge .ic{position:absolute;left:11px;top:6px;width:26px;height:26px}#edge .ic svg{width:100%;height:100%}
+#edge small{position:absolute;left:0;right:0;bottom:3px;text-align:center;font-size:9.5px;font-weight:900;color:#fff}
+#obj.both{border:1px solid #ffe066;box-shadow:0 0 12px rgba(255,224,102,.5)}
 .dn{position:absolute;left:0;top:0;font-weight:900;font-size:15px;color:#fff;text-shadow:0 1px 0 #000,0 0 4px #000;animation:dn .7s ease-out forwards;will-change:transform,opacity}
 .dn.me{color:#ff6b5e;font-size:18px}.dn.mob{color:#ffd9a3;font-size:13px}.dn.heal{color:#7dff9a}.dn.pw{font-size:13px;animation-duration:1s}
 @keyframes dn{0%{opacity:1;margin-top:0}100%{opacity:0;margin-top:-34px}}
@@ -212,6 +225,7 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
   </div>
   <div id="obj"></div>
   <div id="pows"></div>
+  <div id="edge" class="hide"></div>
   <div id="feed"></div>
   <div id="banner"></div>
   <div id="deliver" class="hide"><span></span><div class="bar"><i></i></div></div>
