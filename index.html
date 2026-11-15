@@ -13,6 +13,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <title>Senda Ninja</title>
 <style>
+:root{--sat:max(env(safe-area-inset-top,0px),var(--natT,0px));--sab:max(env(safe-area-inset-bottom,0px),var(--natB,0px))}
 :root{--bg:#0f1522;--panel:#182033;--panel2:#212b44;--ink:#f4ecd8;--mut:#9aa6bd;--acc:#e8553a;--gold:#ffcf4a;--ok:#4cc764;--line:rgba(255,255,255,.12)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
@@ -37,7 +38,7 @@ button{font-family:inherit;color:inherit;border:0;background:none;padding:0;marg
 .room .btn{width:auto;margin:0;padding:8px 14px;flex:none}
 .rnone{font-size:12.5px;color:#aab3c5;padding:6px 2px}
 /* fin de partida: el campo queda a la vista para celebrar; solo la tarjeta de arriba y los paneles reciben toques */
-.screen.party{pointer-events:none;padding:calc(8px + env(safe-area-inset-top)) 10px 0;overflow:hidden}
+.screen.party{pointer-events:none;padding:calc(8px + var(--sat)) 10px 0;overflow:hidden}
 .endTop{pointer-events:auto;width:100%;max-width:420px;background:rgba(13,18,30,.88);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:8px 10px 10px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.45)}
 .endTop .et{font-size:30px;font-weight:900;line-height:1.05;text-shadow:0 2px 0 rgba(0,0,0,.5)}
 .endTop .es{font-size:12px;font-weight:700;color:#d9dfeb;margin:3px 0 8px}
@@ -47,7 +48,7 @@ button{font-family:inherit;color:inherit;border:0;background:none;padding:0;marg
 .eacts{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap;justify-content:center}
 .eacts .btn{flex:1;min-width:84px;margin:0;padding:8px 6px;font-size:12.5px}
 .ehint{margin-top:8px;font-size:12px;font-weight:800;background:rgba(13,18,30,.75);border-radius:999px;padding:5px 12px;text-shadow:0 1px 2px #000}
-.endPanel{pointer-events:auto;position:absolute;left:8px;right:8px;top:calc(196px + env(safe-area-inset-top));bottom:calc(8px + env(safe-area-inset-bottom));background:rgba(9,13,22,.95);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:10px;overflow:auto;touch-action:pan-x pan-y}
+.endPanel{pointer-events:auto;position:absolute;left:8px;right:8px;top:calc(196px + var(--sat));bottom:calc(8px + var(--sab));background:rgba(9,13,22,.95);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:10px;overflow:auto;touch-action:pan-x pan-y}
 .endPanel .eclose{width:auto;margin:0 0 8px;padding:7px 12px}
 .enote{font-size:11.5px;color:#aab3c5;margin:0 2px 8px;line-height:1.35}
 .etbl{overflow:auto;border-radius:10px}
@@ -218,14 +219,14 @@ body.drop #mmCap{display:block}
 #mmCap{display:none;position:absolute;left:50%;top:8px;transform:translateX(-50%);background:rgba(13,18,30,.85);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:900;white-space:nowrap;letter-spacing:.03em;pointer-events:none}
 body.drop #bMenu{top:auto;bottom:-48px;right:0}
 body.drop #team, body.drop #mid, body.drop #obj, body.drop #feed, body.drop #pows, body.drop #ping, body.drop #btns, body.drop #banner{display:none!important}
-body.drop #count{top:calc(var(--mmW) + 70px + env(safe-area-inset-top));font-size:46px;width:280px;margin-left:-140px;padding:8px 10px}
+body.drop #count{top:calc(var(--mmW) + 70px + var(--sat));font-size:46px;width:280px;margin-left:-140px;padding:8px 10px}
 body.drop #count small{font-size:13px;margin-top:3px}
-body.drop #downed{top:calc(var(--mmW) + 70px + env(safe-area-inset-top))}
+body.drop #downed{top:calc(var(--mmW) + 70px + var(--sat))}
 #count{position:absolute;left:50%;top:17%;width:300px;margin-left:-150px;text-align:center;font-size:84px;line-height:1;font-weight:900;text-shadow:0 5px 0 rgba(0,0,0,.45);background:rgba(13,18,30,.82);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:12px 12px 14px}
 #count small{display:block;font-size:15px;font-weight:700;line-height:1.35;text-shadow:none;margin-top:6px}
 #count small b{font-weight:900}
 #downed{position:absolute;left:50%;top:57%;transform:translateX(-50%);width:max-content;max-width:min(320px,88vw);text-align:center;font-size:16px;font-weight:900;background:rgba(13,18,30,.8);border-radius:12px;padding:7px 13px;box-shadow:0 3px 12px rgba(0,0,0,.4)}
-#specBar{display:none;position:absolute;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);align-items:center;gap:8px;padding:6px;border-radius:30px;background:rgba(12,17,30,.82);border:1px solid rgba(255,255,255,.15);pointer-events:auto;z-index:4;max-width:92vw}
+#specBar{display:none;position:absolute;left:50%;bottom:calc(18px + var(--sab));transform:translateX(-50%);align-items:center;gap:8px;padding:6px;border-radius:30px;background:rgba(12,17,30,.82);border:1px solid rgba(255,255,255,.15);pointer-events:auto;z-index:4;max-width:92vw}
 #specBar button{width:46px;height:46px;border-radius:23px;border:0;background:#2b3550;color:#fff;font:900 24px system-ui}
 #specTxt{min-width:150px;text-align:center;font-weight:800;font-size:15px;color:#e8ecf6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 body.spec #specBar{display:flex}
@@ -269,21 +270,21 @@ body.party #bSpecA, body.party #bSpecL{display:none!important}
 #bKill.off{background:rgba(18,24,40,.72);border-color:rgba(255,255,255,.35);animation:none}
 #bKill.off b{color:rgba(255,255,255,.5)}
 @keyframes killp{from{transform:scale(1);box-shadow:0 0 6px #ffcf4a}to{transform:scale(1.08);box-shadow:0 0 22px #ffcf4a}}
-#spect{position:absolute;left:50%;bottom:calc(8px + env(safe-area-inset-bottom));transform:translateX(-50%);width:max-content;max-width:92vw;text-align:center;font-size:12.5px;font-weight:800;background:rgba(13,18,30,.82);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-body.watch #spect{bottom:calc(22px + env(safe-area-inset-bottom));font-size:14px;padding:7px 16px}
+#spect{position:absolute;left:50%;bottom:calc(8px + var(--sab));transform:translateX(-50%);width:max-content;max-width:92vw;text-align:center;font-size:12.5px;font-weight:800;background:rgba(13,18,30,.82);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px}
 #rot{position:absolute;left:0;top:0;width:100%;height:100%;z-index:60;background:#0b0f18;display:flex;align-items:center;justify-content:center;text-align:center;font-size:20px;font-weight:800;padding:24px}
 .tip{font-size:12.5px;color:var(--ink);opacity:.85;text-align:center;margin-top:12px;line-height:1.35;background:rgba(13,18,30,.7);border-radius:10px;padding:8px 10px}
 /* iPhone: respeta la muesca y la barra inferior cuando se abre desde la pantalla de inicio */
-@supports (top: env(safe-area-inset-top)) {
-  #top{top:calc(8px + env(safe-area-inset-top))}
-  #obj{top:calc(124px + env(safe-area-inset-top))}
+@supports (top: var(--sat)) {
+  #top{top:calc(8px + var(--sat))}
+  #obj{top:calc(124px + var(--sat))}
 
-  #feed{top:calc(164px + env(safe-area-inset-top))}
-  #banner{top:calc(178px + env(safe-area-inset-top))}
-  #btns{bottom:env(safe-area-inset-bottom)}
-  #joy{bottom:env(safe-area-inset-bottom)}
-  .screen{padding-top:calc(18px + env(safe-area-inset-top));padding-bottom:calc(22px + env(safe-area-inset-bottom))}
-  .back{top:calc(10px + env(safe-area-inset-top))}
+  #feed{top:calc(164px + var(--sat))}
+  #banner{top:calc(178px + var(--sat))}
+  #btns{bottom:var(--sab)}
+  #joy{bottom:var(--sab)}
+  .screen{padding-top:calc(18px + var(--sat));padding-bottom:calc(22px + var(--sab))}
+  .back{top:calc(10px + var(--sat))}
 }
 </style>
 </head>
