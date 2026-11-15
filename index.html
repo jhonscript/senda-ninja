@@ -152,10 +152,12 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
 #obj span{font-size:12px;font-weight:800;line-height:1.2;margin-left:4px}
 #pows{position:absolute;left:8px;top:163px;display:flex}
 #pows i{font-style:normal;font-size:10.5px;font-weight:900;color:#10151f;border-radius:8px;padding:3px 7px;margin-right:4px;box-shadow:0 1px 3px rgba(0,0,0,.5)}
-#banner{position:absolute;left:0;right:0;top:29%;text-align:center;font-size:19px;font-weight:900;text-shadow:0 2px 0 rgba(0,0,0,.6),0 0 14px rgba(0,0,0,.7);padding:0 18px;opacity:0;transition:opacity .25s}
-#banner.on{opacity:1}
-#banner small{display:block;font-size:13.5px;font-weight:700;margin-top:3px}
-#feed{position:absolute;right:8px;top:164px;text-align:right;font-size:11.5px;font-weight:700;text-shadow:0 1px 2px #000}
+#banner{position:absolute;left:50%;top:178px;transform:translate(-50%,-8px);width:max-content;max-width:min(330px,90vw);text-align:left;background:rgba(13,18,30,.88);border-left:5px solid currentColor;border-radius:12px;padding:8px 13px 8px 11px;font-size:16.5px;font-weight:900;line-height:1.2;box-shadow:0 4px 16px rgba(0,0,0,.45);opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:5}
+#banner.on{opacity:1;transform:translate(-50%,0)}
+#banner small{display:block;font-size:12.5px;font-weight:700;margin-top:3px;color:#d9dfeb}
+body.bn #feed{opacity:.15}
+#feed{transition:opacity .2s}
+#feed{position:absolute;right:8px;top:164px;max-height:84px;overflow:hidden;text-align:right;font-size:11.5px;font-weight:700;text-shadow:0 1px 2px #000}
 #feed div{margin-top:3px;background:rgba(13,18,30,.55);border-radius:7px;padding:2px 7px;display:inline-block;clear:both;float:right}
 #deliver{position:absolute;left:50%;top:38%;width:200px;margin-left:-100px;text-align:center;font-size:13px;font-weight:900;text-shadow:0 1px 3px #000}
 #deliver .bar{height:12px;border-radius:7px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.4);overflow:hidden;margin-top:4px}
@@ -167,14 +169,15 @@ body.sky #btns{display:none}
 #count{position:absolute;left:50%;top:17%;width:300px;margin-left:-150px;text-align:center;font-size:84px;line-height:1;font-weight:900;text-shadow:0 5px 0 rgba(0,0,0,.45);background:rgba(13,18,30,.82);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:12px 12px 14px}
 #count small{display:block;font-size:15px;font-weight:700;line-height:1.35;text-shadow:none;margin-top:6px}
 #count small b{font-weight:900}
-#downed{position:absolute;left:0;right:0;top:55%;text-align:center;font-size:20px;font-weight:900;text-shadow:0 2px 4px #000;padding:0 20px}
+#downed{position:absolute;left:50%;top:57%;transform:translateX(-50%);width:max-content;max-width:min(320px,88vw);text-align:center;font-size:16px;font-weight:900;background:rgba(13,18,30,.8);border-radius:12px;padding:7px 13px;box-shadow:0 3px 12px rgba(0,0,0,.4)}
 #specBar{display:none;position:absolute;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);align-items:center;gap:8px;padding:6px;border-radius:30px;background:rgba(12,17,30,.82);border:1px solid rgba(255,255,255,.15);pointer-events:auto;z-index:4;max-width:92vw}
 #specBar button{width:46px;height:46px;border-radius:23px;border:0;background:#2b3550;color:#fff;font:900 24px system-ui}
 #specTxt{min-width:150px;text-align:center;font-weight:800;font-size:15px;color:#e8ecf6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 body.spec #specBar{display:flex}
+body.watch #joy, body.watch #btns, body.watch #bRefall{display:none!important}
 body.spec #joy, body.spec #btns, body.spec #team, body.spec #downed, body.spec #bRefall, body.spec #pows, body.spec #spect, body.spec #obj, body.spec #edge{display:none!important}
 #bRefall{position:absolute;left:50%;top:calc(55% + 78px);transform:translateX(-50%);min-width:190px;height:50px;padding:0 18px;border-radius:25px;background:linear-gradient(#ffcf4a,#f29a1f);color:#2a1a05;font-size:17px;font-weight:900;border:2px solid #fff3c4;box-shadow:0 4px 14px rgba(0,0,0,.45);pointer-events:auto;z-index:4}
-#downed small{display:block;font-size:13.5px;font-weight:700;margin-top:4px;color:#e7dcc5}
+#downed small{display:block;font-size:12.5px;font-weight:700;margin-top:3px;color:#e7dcc5}
 #vig{position:absolute;left:0;top:0;width:100%;height:100%;box-shadow:inset 0 0 90px 30px rgba(140,60,255,.65);opacity:0;transition:opacity .3s}
 #hurt{position:absolute;left:0;top:0;width:100%;height:100%;box-shadow:inset 0 0 70px 12px rgba(255,40,40,.6);opacity:0}
 #stale{position:absolute;left:0;right:0;top:46%;text-align:center;font-size:14px;font-weight:800;text-shadow:0 1px 3px #000}
@@ -188,6 +191,10 @@ body.spec #joy, body.spec #btns, body.spec #team, body.spec #downed, body.spec #
 .ab.down{background:rgba(255,255,255,.3);transform:scale(.94)}
 .ab:before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;border-radius:50%;
   background:conic-gradient(rgba(0,0,0,.72) calc(var(--cd,0)*360deg),rgba(0,0,0,0) 0)}
+.ab .cmb{position:absolute;left:0;right:0;top:7px;font-style:normal;font-size:13px;font-weight:900;line-height:1;z-index:2;color:#ffcf4a;text-shadow:0 1px 3px #000;pointer-events:none}
+.ab.cmb2{border-color:#ffcf4a;box-shadow:0 0 14px rgba(255,207,74,.85)}
+.ab.cmb3{border-color:#ff6fb5;box-shadow:0 0 18px rgba(255,111,181,.95)}
+.ab.cmb3 .cmb{color:#ff8fc6}
 .ab em{position:absolute;left:0;right:0;bottom:11px;font-style:normal;font-size:7.5px;letter-spacing:.02em;text-transform:uppercase;font-weight:900;z-index:1;color:#fff;text-shadow:0 1px 2px #000}
 .ab svg{margin-top:-9px;width:46%;height:46%}
 #bMelee svg{margin-top:0;width:52%;height:52%}
@@ -201,7 +208,8 @@ body.spec #joy, body.spec #btns, body.spec #team, body.spec #downed, body.spec #
 #bKill b{position:relative;z-index:1;font:900 13px system-ui;letter-spacing:.04em;color:#2a1205}
 #bKill.hide{display:none}
 @keyframes killp{from{transform:scale(1);box-shadow:0 0 6px #ffcf4a}to{transform:scale(1.08);box-shadow:0 0 22px #ffcf4a}}
-#spect{position:absolute;left:0;right:0;bottom:16%;text-align:center;font-size:14px;font-weight:800;text-shadow:0 1px 3px #000}
+#spect{position:absolute;left:50%;bottom:calc(8px + env(safe-area-inset-bottom));transform:translateX(-50%);width:max-content;max-width:92vw;text-align:center;font-size:12.5px;font-weight:800;background:rgba(13,18,30,.82);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.watch #spect{bottom:calc(22px + env(safe-area-inset-bottom));font-size:14px;padding:7px 16px}
 #rot{position:absolute;left:0;top:0;width:100%;height:100%;z-index:60;background:#0b0f18;display:flex;align-items:center;justify-content:center;text-align:center;font-size:20px;font-weight:800;padding:24px}
 .tip{font-size:12.5px;color:var(--ink);opacity:.85;text-align:center;margin-top:12px;line-height:1.35;background:rgba(13,18,30,.7);border-radius:10px;padding:8px 10px}
 /* iPhone: respeta la muesca y la barra inferior cuando se abre desde la pantalla de inicio */
@@ -210,6 +218,7 @@ body.spec #joy, body.spec #btns, body.spec #team, body.spec #downed, body.spec #
   #obj{top:calc(124px + env(safe-area-inset-top))}
 
   #feed{top:calc(164px + env(safe-area-inset-top))}
+  #banner{top:calc(178px + env(safe-area-inset-top))}
   #btns{bottom:env(safe-area-inset-bottom)}
   #joy{bottom:env(safe-area-inset-bottom)}
   .screen{padding-top:calc(18px + env(safe-area-inset-top));padding-bottom:calc(22px + env(safe-area-inset-bottom))}
