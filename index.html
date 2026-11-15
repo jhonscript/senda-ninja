@@ -28,6 +28,39 @@ button{font-family:inherit;color:inherit;border:0;background:none;padding:0;marg
 .screen{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;pointer-events:auto;
   padding:18px 16px 22px;overflow-y:auto;touch-action:pan-y}
 .screen.dim{background:rgba(9,13,22,.86)}
+/* fin de partida: el campo queda a la vista para celebrar; solo la tarjeta de arriba y los paneles reciben toques */
+.screen.party{pointer-events:none;padding:calc(8px + env(safe-area-inset-top)) 10px 0;overflow:hidden}
+.endTop{pointer-events:auto;width:100%;max-width:420px;background:rgba(13,18,30,.88);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:8px 10px 10px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.45)}
+.endTop .et{font-size:30px;font-weight:900;line-height:1.05;text-shadow:0 2px 0 rgba(0,0,0,.5)}
+.endTop .es{font-size:12px;font-weight:700;color:#d9dfeb;margin:3px 0 8px}
+.etabs{display:flex;gap:6px}
+.etabs button{flex:1;padding:8px 2px;border-radius:10px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);color:#fff;font-weight:800;font-size:12.5px}
+.etabs button.on{background:var(--gold);color:#2a1a05;border-color:var(--gold)}
+.eacts{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap;justify-content:center}
+.eacts .btn{flex:1;min-width:84px;margin:0;padding:8px 6px;font-size:12.5px}
+.ehint{margin-top:8px;font-size:12px;font-weight:800;background:rgba(13,18,30,.75);border-radius:999px;padding:5px 12px;text-shadow:0 1px 2px #000}
+.endPanel{pointer-events:auto;position:absolute;left:8px;right:8px;top:calc(196px + env(safe-area-inset-top));bottom:calc(8px + env(safe-area-inset-bottom));background:rgba(9,13,22,.95);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:10px;overflow:auto;touch-action:pan-x pan-y}
+.endPanel .eclose{width:auto;margin:0 0 8px;padding:7px 12px}
+.enote{font-size:11.5px;color:#aab3c5;margin:0 2px 8px;line-height:1.35}
+.etbl{overflow:auto;border-radius:10px}
+.etbl table{border-collapse:separate;border-spacing:0;font-size:12px}
+.etbl th,.etbl td{padding:6px 8px;text-align:center;white-space:nowrap;border-bottom:1px solid rgba(255,255,255,.07)}
+.etbl th{font-size:10.5px;color:#aab3c5;font-weight:800;position:sticky;top:0;background:#141b2b;z-index:1;max-width:72px;white-space:normal;line-height:1.15}
+.etbl th.on,.etbl td.on{color:var(--gold);font-weight:900}
+.etbl .nm{position:sticky;left:0;background:#111827;text-align:left;z-index:2;min-width:96px}
+.etbl td.nm small{display:block;font-size:10px;color:#8a93a6;font-weight:700}
+.etbl tr.me td{background:rgba(255,207,74,.08)}
+.etbl tr.me td.nm{background:#2a2614}
+.emvp{display:grid;grid-template-columns:1fr;gap:7px}
+.mv{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border-radius:12px;padding:8px 10px}
+.mv .mi{font-size:26px;width:34px;text-align:center}
+.mv small{display:block;font-size:10.5px;color:#aab3c5;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.mv b{display:block;font-size:15px}
+.mv span{display:block;font-size:11.5px;color:#cfd6e6}
+body.party #top, body.party #obj, body.party #feed, body.party #pows, body.party #banner, body.party #bKill, body.party #bShur, body.party #count, body.party #downed, body.party #bRefall, body.party #edge{display:none!important}
+body.party #bSpec svg, body.party #bSpec em, body.party #bSpec::after{display:none}
+body.party #bSpec::before{content:'🎆';background:none;position:relative;left:auto;top:auto;width:auto;height:auto;font-size:30px;line-height:1;z-index:1}
+body.party #bSpec{display:flex;align-items:center;justify-content:center;border-color:#ffd76a}
 .screen.title{justify-content:space-between;background:linear-gradient(180deg,rgba(9,13,22,.78) 0%,rgba(9,13,22,.1) 34%,rgba(9,13,22,.15) 55%,rgba(9,13,22,.92) 100%)}
 .logo{text-align:center;margin-top:7vh}
 .logo .k{font-size:13px;letter-spacing:.42em;color:var(--gold);font-weight:700;margin-left:.42em}
