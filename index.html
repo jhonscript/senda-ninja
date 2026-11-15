@@ -258,8 +258,12 @@ body.spec #joy, body.spec #btns, body.spec #team, body.spec #downed, body.spec #
 #bMelee{width:92px;height:92px;right:20px;bottom:54px;border-color:#ffb3a3;background:rgba(232,85,58,.5)}
 #bShur{width:68px;height:68px;right:122px;bottom:34px}
 #bDash{width:66px;height:66px;right:118px;bottom:118px}
-#bSpec{width:70px;height:70px;right:30px;bottom:160px}
-#bKill{width:72px;height:72px;right:29px;bottom:240px;border:3px solid #fff3c4;background:radial-gradient(#ffcf4a,#e0561a);animation:killp .5s ease-in-out infinite alternate}
+#bSpec,#bSpecA,#bSpecL{width:62px;height:62px;right:28px}
+#bSpec{bottom:158px}
+#bSpecA{bottom:228px}
+#bSpecL{bottom:298px}
+body.party #bSpecA, body.party #bSpecL{display:none!important}
+#bKill{width:66px;height:66px;right:104px;bottom:196px;border:3px solid #fff3c4;background:radial-gradient(#ffcf4a,#e0561a);animation:killp .5s ease-in-out infinite alternate}
 #bKill b{position:relative;z-index:1;font:900 11.5px system-ui;letter-spacing:.04em;color:#2a1205}
 #bKill.hide{display:none}
 #bKill.off{background:rgba(18,24,40,.72);border-color:rgba(255,255,255,.35);animation:none}
@@ -322,6 +326,8 @@ body.watch #spect{bottom:calc(22px + env(safe-area-inset-bottom));font-size:14px
   <div id="joy"><div id="joyB"><div id="joyK"></div></div></div>
   <div id="btns">
     <button class="ab" id="bSpec" data-act="special"></button>
+    <button class="ab" id="bSpecA" data-act="special2"></button>
+    <button class="ab" id="bSpecL" data-act="special3"></button>
     <button class="ab" id="bDash" data-act="dash"></button>
     <button class="ab" id="bShur" data-act="shuriken"></button>
     <button class="ab" id="bMelee" data-act="melee"></button>
