@@ -105,7 +105,7 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
 .lb.me .hb i{background:#fff}
 .lb .st{font-size:10px;font-weight:800;color:#ffd0c7;text-shadow:0 1px 2px #000}
 .dn{position:absolute;left:0;top:0;font-weight:900;font-size:15px;color:#fff;text-shadow:0 1px 0 #000,0 0 4px #000;animation:dn .7s ease-out forwards;will-change:transform,opacity}
-.dn.me{color:#ff6b5e;font-size:18px}.dn.heal{color:#7dff9a}
+.dn.me{color:#ff6b5e;font-size:18px}.dn.heal{color:#7dff9a}.dn.pw{font-size:13px;animation-duration:1s}
 @keyframes dn{0%{opacity:1;margin-top:0}100%{opacity:0;margin-top:-34px}}
 #top{position:absolute;left:8px;right:8px;top:8px;display:flex;align-items:flex-start;justify-content:space-between}
 #team{width:36%;max-width:150px}
@@ -120,6 +120,7 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
 #mid{flex:1;text-align:center;padding:0 6px}
 #phase{display:inline-block;font-size:10.5px;font-weight:900;letter-spacing:.14em;padding:3px 9px;border-radius:9px;background:#2c6b3c;color:#d7ffe0}
 #phase.sd{background:#8f2a1c;color:#ffe1da}
+#phase.fr{background:#b0561a;color:#fff0dc}
 #clock{font-size:26px;font-weight:900;line-height:1.1;text-shadow:0 2px 4px #000}
 #clockSub{font-size:11px;font-weight:700;color:#e7dcc5;text-shadow:0 1px 3px #000}
 #alive{font-size:11.5px;font-weight:800;margin-top:2px;text-shadow:0 1px 3px #000}
@@ -133,6 +134,8 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
 #obj .s{width:24px;height:24px;margin-right:3px;opacity:.28;flex:none}
 #obj .s.on{opacity:1}
 #obj span{font-size:12px;font-weight:800;line-height:1.2;margin-left:4px}
+#pows{position:absolute;left:8px;top:163px;display:flex}
+#pows i{font-style:normal;font-size:10.5px;font-weight:900;color:#10151f;border-radius:8px;padding:3px 7px;margin-right:4px;box-shadow:0 1px 3px rgba(0,0,0,.5)}
 #banner{position:absolute;left:0;right:0;top:29%;text-align:center;font-size:19px;font-weight:900;text-shadow:0 2px 0 rgba(0,0,0,.6),0 0 14px rgba(0,0,0,.7);padding:0 18px;opacity:0;transition:opacity .25s}
 #banner.on{opacity:1}
 #banner small{display:block;font-size:13.5px;font-weight:700;margin-top:3px}
@@ -162,7 +165,7 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
 .ab em{position:absolute;left:0;right:0;bottom:11px;font-style:normal;font-size:7.5px;letter-spacing:.02em;text-transform:uppercase;font-weight:900;z-index:1;color:#fff;text-shadow:0 1px 2px #000}
 .ab svg{margin-top:-9px;width:46%;height:46%}
 #bMelee svg{margin-top:0;width:52%;height:52%}
-#shN{font-size:12px;bottom:8px}
+#shN,#dsN.n{font-size:12px;bottom:8px}
 .ab.off{opacity:.5}
 #bMelee{width:92px;height:92px;right:20px;bottom:54px;border-color:#ffb3a3;background:rgba(232,85,58,.5)}
 #bShur{width:68px;height:68px;right:122px;bottom:34px}
@@ -175,6 +178,7 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
 @supports (top: env(safe-area-inset-top)) {
   #top{top:calc(8px + env(safe-area-inset-top))}
   #obj{top:calc(124px + env(safe-area-inset-top))}
+  #pows{top:calc(163px + env(safe-area-inset-top))}
   #feed{top:calc(164px + env(safe-area-inset-top))}
   #btns{bottom:env(safe-area-inset-bottom)}
   #joy{bottom:env(safe-area-inset-bottom)}
@@ -206,6 +210,7 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
     </div>
   </div>
   <div id="obj"></div>
+  <div id="pows"></div>
   <div id="feed"></div>
   <div id="banner"></div>
   <div id="deliver" class="hide"><span></span><div class="bar"><i></i></div></div>
