@@ -24,7 +24,7 @@ input{-webkit-user-select:text;user-select:text}
 button{font-family:inherit;color:inherit;border:0;background:none;padding:0;margin:0;outline:none}
 
 /* ---------- pantallas ---------- */
-#ui{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+#ui{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:8}
 .screen{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;pointer-events:auto;
   padding:18px 16px 22px;overflow-y:auto;touch-action:pan-y}
 .screen.dim{background:rgba(9,13,22,.86)}
@@ -106,6 +106,9 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
 .lb .nm{font-size:10.5px;font-weight:800;text-shadow:0 1px 2px #000,0 0 3px #000;white-space:nowrap;overflow:hidden}
 .lb .hb{height:5px;border-radius:3px;background:rgba(0,0,0,.6);margin:1px 9px 0;overflow:hidden;border:1px solid rgba(0,0,0,.5)}
 .lb .hb i{display:block;height:100%;background:#ff5d5d;border-radius:2px}
+.lb .pw{display:flex;justify-content:center;gap:3px;margin-top:2px;height:7px}
+.lb .pw:empty{display:none}
+.lb .pw i{width:7px;height:7px;border-radius:50%;box-shadow:0 0 6px currentColor,0 0 2px #000}
 .lb.ally .hb i{background:#5fe37f}
 .lb.me .hb i{background:#fff}
 .lb.mob .hb i{background:#ffa53d}.lb.mob .nm{font-size:10px}.lb.mob.big{width:84px;margin-left:-42px}.lb.mob.big .hb{height:7px}
@@ -166,6 +169,17 @@ body.bn #feed{opacity:.15}
 #bDive.hide{display:none}
 body.sky #btns{display:none}
 #mm.big{transform:scale(1.75);transform-origin:top right;z-index:5}
+/* salto: el mapa pasa a ser el protagonista, centrado arriba, y se quita lo que le estorba */
+body.drop{--mmW:min(84vw,330px)}
+body.drop #mm{position:absolute;left:50%;top:0;transform:translateX(-50%);width:var(--mmW);z-index:5}
+body.drop #mini{width:var(--mmW);height:var(--mmW);border-radius:18px;border:2px solid rgba(255,255,255,.35);box-shadow:0 6px 22px rgba(0,0,0,.55)}
+body.drop #mmCap{display:block}
+#mmCap{display:none;position:absolute;left:50%;top:8px;transform:translateX(-50%);background:rgba(13,18,30,.85);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:900;white-space:nowrap;letter-spacing:.03em;pointer-events:none}
+body.drop #bMenu{top:auto;bottom:-48px;right:0}
+body.drop #team, body.drop #mid, body.drop #obj, body.drop #feed, body.drop #pows, body.drop #ping, body.drop #btns, body.drop #banner{display:none!important}
+body.drop #count{top:calc(var(--mmW) + 70px + env(safe-area-inset-top));font-size:46px;width:280px;margin-left:-140px;padding:8px 10px}
+body.drop #count small{font-size:13px;margin-top:3px}
+body.drop #downed{top:calc(var(--mmW) + 70px + env(safe-area-inset-top))}
 #count{position:absolute;left:50%;top:17%;width:300px;margin-left:-150px;text-align:center;font-size:84px;line-height:1;font-weight:900;text-shadow:0 5px 0 rgba(0,0,0,.45);background:rgba(13,18,30,.82);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:12px 12px 14px}
 #count small{display:block;font-size:15px;font-weight:700;line-height:1.35;text-shadow:none;margin-top:6px}
 #count small b{font-weight:900}
@@ -204,9 +218,11 @@ body.spec #joy, body.spec #btns, body.spec #team, body.spec #downed, body.spec #
 #bShur{width:68px;height:68px;right:122px;bottom:34px}
 #bDash{width:66px;height:66px;right:118px;bottom:118px}
 #bSpec{width:70px;height:70px;right:30px;bottom:160px}
-#bKill{width:84px;height:84px;right:130px;bottom:186px;border:3px solid #fff3c4;background:radial-gradient(#ffcf4a,#e0561a);animation:killp .5s ease-in-out infinite alternate}
-#bKill b{position:relative;z-index:1;font:900 13px system-ui;letter-spacing:.04em;color:#2a1205}
+#bKill{width:72px;height:72px;right:29px;bottom:240px;border:3px solid #fff3c4;background:radial-gradient(#ffcf4a,#e0561a);animation:killp .5s ease-in-out infinite alternate}
+#bKill b{position:relative;z-index:1;font:900 11.5px system-ui;letter-spacing:.04em;color:#2a1205}
 #bKill.hide{display:none}
+#bKill.off{background:rgba(18,24,40,.72);border-color:rgba(255,255,255,.35);animation:none}
+#bKill.off b{color:rgba(255,255,255,.5)}
 @keyframes killp{from{transform:scale(1);box-shadow:0 0 6px #ffcf4a}to{transform:scale(1.08);box-shadow:0 0 22px #ffcf4a}}
 #spect{position:absolute;left:50%;bottom:calc(8px + env(safe-area-inset-bottom));transform:translateX(-50%);width:max-content;max-width:92vw;text-align:center;font-size:12.5px;font-weight:800;background:rgba(13,18,30,.82);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 body.watch #spect{bottom:calc(22px + env(safe-area-inset-bottom));font-size:14px;padding:7px 16px}
@@ -244,6 +260,7 @@ body.watch #spect{bottom:calc(22px + env(safe-area-inset-bottom));font-size:14px
     </div>
     <div id="mm">
       <canvas id="mini" width="208" height="208"></canvas>
+      <div id="mmCap">Elige dónde caer</div>
       <div id="ping"></div>
       <button id="bMenu">II</button>
     </div>
@@ -267,7 +284,7 @@ body.watch #spect{bottom:calc(22px + env(safe-area-inset-bottom));font-size:14px
     <button class="ab" id="bDash" data-act="dash"></button>
     <button class="ab" id="bShur" data-act="shuriken"></button>
     <button class="ab" id="bMelee" data-act="melee"></button>
-    <button class="ab hide" id="bKill" data-act="remate"><b>REMATE</b></button>
+    <button class="ab off" id="bKill" data-act="remate"><b>REMATE</b></button>
   </div>
 </div>
 
