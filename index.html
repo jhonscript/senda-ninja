@@ -160,12 +160,10 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
 #deliver{position:absolute;left:50%;top:38%;width:200px;margin-left:-100px;text-align:center;font-size:13px;font-weight:900;text-shadow:0 1px 3px #000}
 #deliver .bar{height:12px;border-radius:7px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.4);overflow:hidden;margin-top:4px}
 #deliver .bar i{display:block;height:100%;background:var(--gold)}
-#drop{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(94vw,62vh);padding:10px;border-radius:16px;background:rgba(10,14,26,.94);border:1px solid rgba(255,255,255,.2);pointer-events:auto;z-index:6;text-align:center}
-#drop.hide{display:none}
-#drop .dh{display:flex;justify-content:space-between;align-items:center;font-size:18px;margin:2px 4px 8px}
-#drop .dh span{font-weight:900;font-size:22px;color:#ffcf4a}
-#dropMap{width:100%;aspect-ratio:1;border-radius:10px;touch-action:none;display:block}
-#drop .ds{font-size:12px;color:#c9cfdd;margin-top:8px}
+#bDive{position:absolute;right:26px;bottom:70px;width:104px;height:104px;border-radius:52px;border:3px solid #dff3ff;background:radial-gradient(#7fd3ff,#2f6bff);color:#06142e;font:900 16px system-ui;letter-spacing:.04em;pointer-events:auto;z-index:4;box-shadow:0 4px 16px rgba(0,0,0,.45)}
+#bDive.hide{display:none}
+body.sky #btns{display:none}
+#mm.big{transform:scale(1.75);transform-origin:top right;z-index:5}
 #count{position:absolute;left:50%;top:17%;width:300px;margin-left:-150px;text-align:center;font-size:84px;line-height:1;font-weight:900;text-shadow:0 5px 0 rgba(0,0,0,.45);background:rgba(13,18,30,.82);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:12px 12px 14px}
 #count small{display:block;font-size:15px;font-weight:700;line-height:1.35;text-shadow:none;margin-top:6px}
 #count small b{font-weight:900}
@@ -253,7 +251,7 @@ body.spec #joy, body.spec #btns, body.spec #team, body.spec #downed, body.spec #
   <div id="stale" class="hide">Esperando al anfitrión…</div>
   <div id="spect" class="hide"></div>
   <div id="count" class="hide"></div>
-  <div id="drop" class="hide"><div class="dh"><b>Elige dónde caer</b><span id="dropT"></span></div><canvas id="dropMap" width="480" height="480"></canvas><div class="ds">Toca el mapa. Tus compañeros bots caen contigo; si no eliges, caes con tu equipo.</div></div>
+  <button id="bDive" class="hide">PICADA</button>
   <div id="joy"><div id="joyB"><div id="joyK"></div></div></div>
   <div id="btns">
     <button class="ab" id="bSpec" data-act="special"></button>
