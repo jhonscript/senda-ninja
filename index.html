@@ -304,6 +304,9 @@ body.mapbig #bBag, body.party #bBag, body.watch #bBag{display:none}
 #bag .bagE{font-size:13px;color:#aab3cc;padding:6px 0}
 #bag .bagN{font-size:11px;color:#8f99b5;margin-top:6px}
 #bSpKill{position:absolute;left:50%;bottom:calc(64px + var(--sab));transform:translateX(-50%);z-index:6;pointer-events:auto;border:2px solid #fff3c4;border-radius:999px;background:rgba(13,18,30,.92);color:#fff;font:800 14px system-ui;padding:9px 16px;white-space:nowrap;max-width:92vw;box-shadow:0 4px 14px rgba(0,0,0,.5);animation:spkp .7s ease-in-out infinite alternate}
+#bSpScroll{position:absolute;right:10px;bottom:calc(112px + var(--sab));z-index:6;pointer-events:auto;border:2px solid rgba(255,255,255,.5);border-radius:999px;background:rgba(13,18,30,.92);color:#fff;font:800 13px system-ui;padding:8px 13px;white-space:nowrap;max-width:70vw;overflow:hidden;text-overflow:ellipsis;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+#bSpScroll small{font-weight:700;opacity:.8}
+body.spec #bSpScroll{bottom:calc(158px + var(--sab))}
 body.spec #pows{top:auto!important;bottom:calc(74px + var(--sab));justify-content:center}
 body.spec #bSpKill{bottom:calc(116px + var(--sab))}
 @keyframes spkp{from{box-shadow:0 0 6px #ffcf4a}to{box-shadow:0 0 20px #ffcf4a}}
@@ -369,6 +372,7 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
   <div id="stale" class="hide">Esperando al anfitrión…</div>
   <div id="spect" class="hide"></div>
   <button id="bSpKill" class="hide"></button>
+  <button id="bSpScroll" class="hide"></button>
   <div id="count" class="hide"></div>
   <button id="bDive" class="hide">PICADA</button>
   <div id="joy"><div id="joyB"><div id="joyK"></div></div></div>
