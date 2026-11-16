@@ -264,6 +264,25 @@ body.spec #joy, body.spec #btns, body.spec #team, body.spec #downed, body.spec #
 #bSpecA{bottom:228px}
 #bSpecL{bottom:298px}
 body.party #bSpecA, body.party #bSpecL{display:none!important}
+#bBurn{width:66px;height:66px;right:104px;bottom:272px;border:3px solid #ffd2a6;background:radial-gradient(#ffa24d,#c8321a);animation:killp .5s ease-in-out infinite alternate}
+#bBurn i{position:absolute;left:50%;top:8px;width:22px;height:22px;margin-left:-11px}
+#bBurn i svg{width:100%;height:100%}
+#bBurn b{position:relative;z-index:1;top:11px;font:900 10.5px system-ui;letter-spacing:.03em;color:#2a0d05}
+body.party #bBurn{display:none!important}
+.lb .scr{position:absolute;left:-24px;right:-24px;bottom:100%;display:flex;justify-content:center;align-items:center;gap:1px;margin-bottom:1px;pointer-events:none}
+.lb .scr svg{width:14px;height:14px;filter:drop-shadow(0 0 2px #000)}
+.lb .scr b{font:900 11.5px system-ui;color:#fff;text-shadow:0 0 3px #000,0 1px 2px #000;margin-left:2px}
+.lb.many .scr svg{width:16px;height:16px;filter:drop-shadow(0 0 4px #ff6a3d) drop-shadow(0 0 2px #000)}
+.lb.many .scr b{color:#ffb27a}
+#mini{pointer-events:auto;cursor:zoom-in}
+#mmX{display:none;position:absolute;right:-8px;top:-8px;width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,.6);background:rgba(13,18,30,.92);color:#fff;font:900 16px system-ui;z-index:3;pointer-events:auto;padding:0}
+body.mapbig{--mmW:min(84vw,330px,calc(100vh - 380px))}
+body.mapbig #mm{position:absolute;left:50%;top:0;transform:translateX(-50%);width:var(--mmW);z-index:5}
+body.mapbig #mini{width:var(--mmW);height:var(--mmW);border-radius:18px;border:2px solid rgba(255,255,255,.35);box-shadow:0 6px 22px rgba(0,0,0,.55);cursor:zoom-out}
+body.mapbig #mmCap{display:block;top:auto;bottom:8px}
+body.mapbig #mmX{display:block}
+body.mapbig #bMenu{top:auto;bottom:-48px;right:auto;left:0}
+body.mapbig #team, body.mapbig #mid, body.mapbig #obj, body.mapbig #feed, body.mapbig #banner, body.mapbig #ping{display:none!important}
 #bKill{width:66px;height:66px;right:104px;bottom:196px;border:3px solid #fff3c4;background:radial-gradient(#ffcf4a,#e0561a);animation:killp .5s ease-in-out infinite alternate}
 #bKill b{position:relative;z-index:1;font:900 11.5px system-ui;letter-spacing:.04em;color:#2a1205}
 #bKill.hide{display:none}
@@ -307,6 +326,7 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
     <div id="mm">
       <canvas id="mini" width="208" height="208"></canvas>
       <div id="mmCap">Elige dónde caer</div>
+      <button id="mmX" aria-label="Cerrar mapa">✕</button>
       <div id="ping"></div>
       <button id="bMenu">II</button>
     </div>
@@ -333,6 +353,7 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
     <button class="ab" id="bShur" data-act="shuriken"></button>
     <button class="ab" id="bMelee" data-act="melee"></button>
     <button class="ab off" id="bKill" data-act="remate"><b>REMATE</b></button>
+    <button class="ab hide" id="bBurn" data-act="burn"><i></i><b>QUEMAR</b></button>
   </div>
 </div>
 
