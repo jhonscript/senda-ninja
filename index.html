@@ -161,7 +161,9 @@ h3{margin:14px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercas
 .who b{color:var(--ink)}
 .who .row .btn{width:auto;padding:0 16px}
 .lnk{color:var(--gold);font-weight:800;text-decoration:underline;pointer-events:auto;font-size:13.5px}
-.screen.prep,.screen.maps{padding:calc(12px + var(--sat)) 16px 0}
+.screen.prep,.screen.maps{padding:var(--sat) 0 0!important;overflow:hidden}
+/* preparar y elegir mapa: arriba lo que se desplaza; abajo, aparte, los botones (nada queda debajo de ellos) */
+.pscroll{flex:1 1 auto;min-height:0;width:100%;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;display:flex;flex-direction:column;align-items:center;padding:12px 16px 18px}
 .phead{width:100%;max-width:400px;display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .phead h2{text-align:left;margin:0;font-size:22px}
 .phead small{display:block;font-size:13px;color:#a9b3c8;margin-top:1px;line-height:1.3}
@@ -180,7 +182,8 @@ img.mthumb[src=""]{visibility:visible}
 .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.2);box-shadow:none;color:var(--ink)}
 .btn.ghost2{background:transparent;border:0;box-shadow:none;color:#c3cbdb;margin-top:2px}
 .ofold{margin-top:8px}
-.pfoot{position:sticky;bottom:0;width:calc(100% + 32px);max-width:432px;margin-top:auto;padding:14px 16px calc(14px + var(--sab));background:linear-gradient(180deg,rgba(9,13,22,0),rgba(9,13,22,.97) 24%);z-index:2}
+.pfoot{position:relative;flex:none;width:100%;max-width:432px;padding:10px 16px calc(12px + var(--sab));background:rgba(9,13,22,.97);z-index:2}
+.pfoot::before{content:'';position:absolute;left:0;right:0;top:-18px;height:18px;background:linear-gradient(180deg,rgba(9,13,22,0),rgba(9,13,22,.97));pointer-events:none}
 .pfoot .btn{margin-top:4px}
 .tabs3 button{height:52px;flex-direction:column;gap:1px}
 .tabs3 b{font-size:15px}.tabs3 small{font-size:11.5px;font-weight:600;opacity:.8}
@@ -399,6 +402,11 @@ body.spec #joy, body.spec #btns, body.spec #downed, body.spec #bRefall, body.spe
 #bMelee svg{margin-top:0;width:52%;height:52%}
 #shN,#dsN.n{font-size:12px;bottom:8px}
 .ab.off{opacity:.5}
+.ab .cdn{position:absolute;left:0;top:0;right:0;bottom:6px;display:flex;align-items:center;justify-content:center;font:900 23px/1 system-ui,sans-serif;color:#fff;text-shadow:0 2px 4px #000,0 0 6px #000;z-index:2;pointer-events:none}
+.ab .cdn:empty{display:none}
+.ab.cdw svg{opacity:.3}
+.ab.nope{animation:nope .32s ease-in-out}
+@keyframes nope{0%,100%{translate:0 0}20%{translate:-5px 0}40%{translate:5px 0}60%{translate:-3px 0}80%{translate:3px 0}}
 #bMelee{width:92px;height:92px;right:20px;bottom:54px;border-color:#ffb3a3;background:rgba(232,85,58,.5)}
 #bShur{width:68px;height:68px;right:122px;bottom:34px}
 #bDash{width:66px;height:66px;right:118px;bottom:118px}
