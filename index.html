@@ -238,7 +238,7 @@ body.drop #downed{top:calc(var(--mmW) + 70px + var(--sat))}
 #specTxt{min-width:150px;text-align:center;font-weight:800;font-size:15px;color:#e8ecf6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 body.spec #specBar{display:flex}
 body.watch #joy, body.watch #btns, body.watch #bRefall{display:none!important}
-body.spec #joy, body.spec #btns, body.spec #team, body.spec #downed, body.spec #bRefall, body.spec #pows, body.spec #spect, body.spec #obj, body.spec #edge{display:none!important}
+body.spec #joy, body.spec #btns, body.spec #team, body.spec #downed, body.spec #bRefall, body.spec #spect, body.spec #obj, body.spec #edge{display:none!important}
 #bRefall{position:absolute;left:50%;top:calc(55% + 78px);transform:translateX(-50%);min-width:190px;height:50px;padding:0 18px;border-radius:25px;background:linear-gradient(#ffcf4a,#f29a1f);color:#2a1a05;font-size:17px;font-weight:900;border:2px solid #fff3c4;box-shadow:0 4px 14px rgba(0,0,0,.45);pointer-events:auto;z-index:4}
 #downed small{display:block;font-size:12.5px;font-weight:700;margin-top:3px;color:#e7dcc5}
 #vig{position:absolute;left:0;top:0;width:100%;height:100%;box-shadow:inset 0 0 90px 30px rgba(140,60,255,.65);opacity:0;transition:opacity .3s}
@@ -303,6 +303,10 @@ body.mapbig #bBag, body.party #bBag, body.watch #bBag{display:none}
 #bag .bi button{border:0;border-radius:9px;background:var(--gold);color:#2a1a05;font-weight:900;font-size:12px;padding:6px 10px}
 #bag .bagE{font-size:13px;color:#aab3cc;padding:6px 0}
 #bag .bagN{font-size:11px;color:#8f99b5;margin-top:6px}
+#bSpKill{position:absolute;left:50%;bottom:calc(64px + var(--sab));transform:translateX(-50%);z-index:6;pointer-events:auto;border:2px solid #fff3c4;border-radius:999px;background:rgba(13,18,30,.92);color:#fff;font:800 14px system-ui;padding:9px 16px;white-space:nowrap;max-width:92vw;box-shadow:0 4px 14px rgba(0,0,0,.5);animation:spkp .7s ease-in-out infinite alternate}
+body.spec #pows{top:auto!important;bottom:calc(74px + var(--sab));justify-content:center}
+body.spec #bSpKill{bottom:calc(116px + var(--sab))}
+@keyframes spkp{from{box-shadow:0 0 6px #ffcf4a}to{box-shadow:0 0 20px #ffcf4a}}
 #bKill{width:66px;height:66px;right:104px;bottom:196px;border:3px solid #fff3c4;background:radial-gradient(#ffcf4a,#e0561a);animation:killp .5s ease-in-out infinite alternate}
 #bKill b{position:relative;z-index:1;font:900 11.5px system-ui;letter-spacing:.04em;color:#2a1205}
 #bKill.hide{display:none}
@@ -364,6 +368,7 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
   <div id="specBar"><button id="bSpPrev">‹</button><div id="specTxt">Espectador</div><button id="bSpNext">›</button></div>
   <div id="stale" class="hide">Esperando al anfitrión…</div>
   <div id="spect" class="hide"></div>
+  <button id="bSpKill" class="hide"></button>
   <div id="count" class="hide"></div>
   <button id="bDive" class="hide">PICADA</button>
   <div id="joy"><div id="joyB"><div id="joyK"></div></div></div>
