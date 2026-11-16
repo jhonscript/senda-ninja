@@ -288,6 +288,19 @@ body.mapbig #mmCap{display:block;top:auto;bottom:8px}
 body.mapbig #mmX{display:block}
 body.mapbig #bMenu{top:auto;bottom:-48px;right:auto;left:0}
 body.mapbig #team, body.mapbig #mid, body.mapbig #obj, body.mapbig #feed, body.mapbig #banner, body.mapbig #ping{display:none!important}
+#bBag{position:absolute;right:50px;top:110px;width:44px;height:38px;border-radius:10px;background:rgba(13,18,30,.75);border:1px solid rgba(255,255,255,.25);font-size:18px;pointer-events:auto;padding:0}
+body.mapbig #bBag, body.party #bBag, body.watch #bBag{display:none}
+#bag{position:absolute;left:8px;top:calc(8px + var(--sat));width:min(250px,62vw);z-index:9;pointer-events:auto;background:rgba(9,13,22,.96);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:10px;max-height:calc(48vh - 16px);overflow:auto;touch-action:pan-y}
+#bag .bagH{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;font-size:15px}
+#bag .bagX{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font-weight:900;padding:0}
+#bag .bi{display:flex;align-items:center;gap:8px;padding:6px 0;border-top:1px solid rgba(255,255,255,.08);font-size:13px;font-weight:700}
+#bag .bi .ic2{width:20px;height:20px;flex:none;display:flex;align-items:center;justify-content:center}
+#bag .bi .ic2 svg{width:20px;height:20px}
+#bag .bi .ic2 i{display:block;width:14px;height:14px;border-radius:50%}
+#bag .bi span{flex:1}
+#bag .bi button{border:0;border-radius:9px;background:var(--gold);color:#2a1a05;font-weight:900;font-size:12px;padding:6px 10px}
+#bag .bagE{font-size:13px;color:#aab3cc;padding:6px 0}
+#bag .bagN{font-size:11px;color:#8f99b5;margin-top:6px}
 #bKill{width:66px;height:66px;right:104px;bottom:196px;border:3px solid #fff3c4;background:radial-gradient(#ffcf4a,#e0561a);animation:killp .5s ease-in-out infinite alternate}
 #bKill b{position:relative;z-index:1;font:900 11.5px system-ui;letter-spacing:.04em;color:#2a1205}
 #bKill.hide{display:none}
@@ -316,6 +329,7 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
 <canvas id="c"></canvas>
 
 <div id="hud" class="hide">
+  <div id="bag" class="hide"><div class="bagH"><b>Mochila</b><button class="bagX" aria-label="Cerrar">✕</button></div><div id="bagL"></div><div class="bagN">Lo que sueltes queda a tus pies: un compañero lo toma al pasar (un rival también). Tú no lo vuelves a tomar hasta que te alejes.</div></div>
   <div id="labels"></div>
   <div id="vig"></div>
   <div id="hurt"></div>
@@ -334,6 +348,7 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
       <button id="mmX" aria-label="Cerrar mapa">✕</button>
       <div id="ping"></div>
       <button id="bMenu">II</button>
+      <button id="bBag" aria-label="Mochila">🎒</button>
     </div>
   </div>
   <div id="obj"></div>
