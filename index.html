@@ -415,6 +415,19 @@ body.spec #joy, body.spec #btns, body.spec #downed, body.spec #bRefall, body.spe
 #bSpecA{bottom:228px}
 #bSpecL{bottom:298px}
 body.party #bSpecA, body.party #bSpecL{display:none!important}
+/* celular de lado: las técnicas en fila abajo, a la izquierda de la esquiva y la estrella (no suben hasta el minimapa) */
+body.land #btns{width:410px;height:190px}
+body.land #bMelee{right:18px;bottom:26px}
+body.land #bShur{right:120px;bottom:12px}
+body.land #bDash{right:116px;bottom:92px}
+body.land #bSpec,body.land #bSpecA,body.land #bSpecL{width:56px;height:56px;bottom:14px}
+body.land #bSpec{right:196px}
+body.land #bSpecA{right:260px}
+body.land #bSpecL{right:324px}
+body.land #bBurn{right:198px;bottom:86px}
+body.land #me{bottom:calc(158px + var(--sab))}
+body.land #joyB{top:calc(100% - 84px)}
+body.land #joy{width:50%;height:64%}
 #bBurn{width:66px;height:66px;right:104px;bottom:272px;border:3px solid #ffd2a6;background:radial-gradient(#ffa24d,#c8321a);animation:killp .5s ease-in-out infinite alternate}
 #bBurn i{position:absolute;left:50%;top:9px;width:36px;height:18px;margin-left:-18px;display:flex;gap:0}
 #bBurn i svg{width:18px;height:18px}
