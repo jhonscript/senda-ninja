@@ -628,6 +628,23 @@ body.spec #bSpKill{bottom:calc(116px + var(--sab))}
 #bCarry.drop{background:radial-gradient(#8a93a6,#3a4152)}
 body.land #bCarry{width:54px;height:54px;right:94px;bottom:76px}
 #bKill.off{background:rgba(18,24,40,.72);border-color:rgba(255,255,255,.35);animation:none}
+#bMech{position:absolute;right:0;top:156px;width:94px;height:40px;border-radius:12px;border:2px solid #7df9ff;background:linear-gradient(#2b4664,#16253a);display:flex;align-items:center;justify-content:center;gap:5px;pointer-events:auto;touch-action:none;padding:0;color:#fff}
+#bMech.hide{display:none}
+body.mapbig #bMech, body.party #bMech, body.watch #bMech{display:none}
+body.land:not(.mapbig) #bMech{top:73px}
+#bMech span{font-size:18px;line-height:1}
+#bMech b{font:900 11px system-ui;letter-spacing:.03em;color:#dffaff}
+#bMech i{position:absolute;right:-5px;top:-7px;min-width:18px;height:18px;border-radius:9px;background:#ffd76a;color:#2a1205;font:900 11px/18px system-ui;font-style:normal;padding:0 4px}
+#bMech i:empty{display:none}
+#bMech.ctl{border-color:#ffd76a;box-shadow:0 0 14px rgba(255,215,106,.6)}
+#mechMenu{position:fixed;z-index:40;width:0;height:0;pointer-events:none}
+#mechMenu.hide{display:none}
+#mechMenu .mmC{position:absolute;left:-34px;top:-34px;width:68px;height:68px;border-radius:50%;border:2px dashed rgba(255,255,255,.55);background:rgba(10,16,28,.55);color:#fff;font:700 10px/1.15 system-ui;display:flex;align-items:center;justify-content:center;text-align:center}
+#mechMenu .mi{position:absolute;width:82px;margin-left:-41px;margin-top:-30px;min-height:60px;border-radius:14px;background:rgba(14,22,38,.94);border:2px solid #7df9ff;color:#fff;font:800 11px/1.15 system-ui;text-align:center;padding:5px 4px;box-sizing:border-box}
+#mechMenu .mi small{display:block;font-weight:700;font-size:10px;opacity:.85}
+#mechMenu .mi.off{opacity:.45;border-color:rgba(255,255,255,.3)}
+#mechMenu .mi.sel{background:#7df9ff;color:#06142e;transform:scale(1.12)}
+#mechMenu .mi.ninja{border-color:#ffd76a}
 #bKill.off b{color:rgba(255,255,255,.5)}
 /* con teclado: la tecla de cada botón, en chiquito */
 body.kb [data-key]{overflow:visible}
@@ -662,6 +679,7 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
   <div id="ins" class="hide"><div class="bagH"><b>Jugadores</b><button class="bagX" aria-label="Cerrar">✕</button></div><div id="insL"></div></div>
   <div id="bag" class="hide"><div class="bagH"><b>Mochila</b><button class="bagX" aria-label="Cerrar">✕</button></div><div id="bagL"></div><div class="bagN">Lo que sueltes queda a tus pies: un compañero lo toma al pasar (un rival también). Tú no lo vuelves a tomar hasta que te alejes.</div></div>
   <div id="labels"></div>
+  <div id="mechMenu" class="hide"><div class="mmC"></div></div>
   <div id="vig"></div>
   <div id="hurt"></div>
   <div id="dmg"></div>
@@ -681,6 +699,7 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
       <button id="bMenu" data-key="Esc">II</button>
       <button id="bBag" aria-label="Mochila" data-key="Q">🎒</button>
       <button id="bIns" aria-label="Jugadores" data-key="Tab">👥</button>
+      <button id="bMech" class="hide" aria-label="Mechas"><span>🤖</span><b>MECHAS</b><i></i></button>
     </div>
   </div>
   <div id="me" style="display:none"><div class="mN"></div><div class="mH"><div class="mB"><i></i></div><b class="mV"></b><span class="mD"></span></div><div class="mS"></div><div id="pows"></div></div>
