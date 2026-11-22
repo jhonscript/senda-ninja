@@ -383,6 +383,8 @@ body.land #alive small.mk{margin:0 0 0 6px;padding:0 6px}
 #deliver .bar i{display:block;height:100%;background:var(--gold)}
 #bDive{position:absolute;right:26px;bottom:70px;width:104px;height:104px;border-radius:52px;border:3px solid #dff3ff;background:radial-gradient(#7fd3ff,#2f6bff);color:#06142e;font:900 16px system-ui;letter-spacing:.04em;pointer-events:auto;z-index:4;box-shadow:0 4px 16px rgba(0,0,0,.45)}
 #bDive.hide{display:none}
+#bDive small{display:block;font:800 11px system-ui;opacity:.8;margin-top:2px}
+#bDive.on{background:radial-gradient(#ffd27f,#ff7a2f);border-color:#fff3c4;transform:scale(.94);box-shadow:0 0 18px rgba(255,150,60,.7)}
 body.sky #btns{display:none}
 #mm.big{transform:scale(1.75);transform-origin:top right;z-index:5}
 /* salto: el mapa pasa a ser el protagonista, centrado arriba, y se quita lo que le estorba */
@@ -393,8 +395,9 @@ body.drop #mmCap{display:block}
 #mmCap{display:none;position:absolute;left:50%;top:8px;transform:translateX(-50%);background:rgba(13,18,30,.85);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:900;white-space:nowrap;letter-spacing:.03em;pointer-events:none}
 body.drop #bMenu{top:auto;bottom:-48px;right:0}
 body.drop #team, body.drop #mid, body.drop #obj, body.drop #feed, body.drop #me, body.drop #ping, body.drop #btns, body.drop #banner{display:none!important}
-body.drop #count{top:calc(var(--mmW) + 70px + var(--sat));font-size:46px;width:280px;margin-left:-140px;padding:8px 10px}
-body.drop #count small{font-size:13px;margin-top:3px}
+body.skyc #count{top:auto;left:auto;right:10px;bottom:calc(14px + var(--sab));font-size:44px;width:200px;margin-left:0;padding:8px 10px}
+body.skyc #count small{font-size:12.5px;margin-top:3px}
+body.skyc #btns{visibility:hidden}
 body.drop #downed{top:calc(var(--mmW) + 70px + var(--sat))}
 #count{position:absolute;left:50%;top:17%;width:300px;margin-left:-150px;text-align:center;font-size:84px;line-height:1;font-weight:900;text-shadow:0 5px 0 rgba(0,0,0,.45);background:rgba(13,18,30,.82);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:12px 12px 14px}
 #count small{display:block;font-size:15px;font-weight:700;line-height:1.35;text-shadow:none;margin-top:6px}
@@ -423,6 +426,8 @@ body.spec #joy, body.spec #btns, body.spec #downed, body.spec #bRefall, body.spe
 #joyB.on{opacity:1}
 #joyK{position:absolute;left:50%;top:50%;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.55);transform:translate(-50%,-50%)}
 #btns{position:absolute;right:0;bottom:0;width:230px;height:270px}
+#btns.crawl > *{opacity:.3}
+#btns.crawl > #bShur{opacity:1;box-shadow:0 0 0 3px #fff3c4,0 0 18px rgba(255,220,120,.7)}
 .ab{position:absolute;border-radius:50%;background:rgba(18,24,40,.72);border:2px solid rgba(255,255,255,.4);pointer-events:auto;touch-action:none;color:#fff;overflow:hidden}
 .ab svg{width:52%;height:52%;position:relative;z-index:1}
 .ab.down{background:rgba(255,255,255,.3);transform:scale(.94)}
@@ -701,8 +706,8 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
     <button class="ab" id="bDash" data-act="dash" data-key="Espacio"></button>
     <button class="ab" id="bShur" data-act="shuriken" data-key="Clic der."></button>
     <button class="ab" id="bMelee" data-act="melee" data-key="Clic"></button>
-    <!-- el remate es automático: el botón ya no se muestra -->
-    <button class="ab off" id="bKill" data-act="remate" data-key="F" style="display:none"><b>REMATE</b></button>
+    <!-- remate: con el botón; en furia sale solo -->
+    <button class="ab off" id="bKill" data-act="remate" data-key="F"><b>REMATE</b></button>
     <button class="ab hide" id="bBurn" data-act="burn" data-key="B"><i></i><b>FURIA</b></button>
     <button class="ab hide" id="bCarry" data-act="carry" data-key="E"><b>CARGAR</b></button>
   </div>
