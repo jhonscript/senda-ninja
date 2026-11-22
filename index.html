@@ -270,6 +270,11 @@ body.dwn #downfx{opacity:1;animation:dwnp 1.6s ease-in-out infinite}
 #downfx b{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%) scale(.6);font:900 38px system-ui;letter-spacing:.12em;color:#fff;text-shadow:0 0 18px #ff5d5d,0 3px 0 #6b0f0f;opacity:0}
 #downfx.hit b{animation:dwnt 1.8s ease-out forwards}
 @keyframes dwnt{0%{opacity:0;transform:translate(-50%,-50%) scale(1.8)}15%{opacity:1;transform:translate(-50%,-50%) scale(1)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(.95)}}
+#hitfx{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse at center,rgba(255,0,0,0) 50%,rgba(255,30,30,.55) 85%,rgba(200,0,0,.85) 100%)}
+#hitfx.on{animation:hitf .45s ease-out}
+@keyframes hitf{0%{opacity:var(--hk,.6)}100%{opacity:0}}
+#c.jolt{animation:jolt .18s linear}
+@keyframes jolt{0%{transform:translate(0,0)}25%{transform:translate(-5px,3px)}50%{transform:translate(4px,-3px)}75%{transform:translate(-2px,2px)}100%{transform:translate(0,0)}}
 #lowhp{position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse at center,rgba(255,0,0,0) 44%,rgba(200,0,0,.46) 74%,rgba(160,0,0,.85) 100%);transition:opacity .25s}
 #lowhp.beat{animation:lowbeat .62s ease-in-out infinite}
 #lowhp::after{content:"";position:absolute;left:0;top:0;right:0;bottom:0;background:var(--cracks) center/100% 100% no-repeat;opacity:0;transition:opacity .3s}
@@ -724,6 +729,7 @@ body.ibar #verTag{display:none}
 
 <div id="hud" class="hide">
   <div id="lowhp"></div>
+  <div id="hitfx"></div>
   <div id="downfx"><b>DERRIBADO</b></div>
   <div id="furyfx"><i></i></div>
   <div id="ins" class="hide"><div class="bagH"><b>Jugadores</b><button class="bagX" aria-label="Cerrar">✕</button></div><div id="insL"></div></div>
@@ -788,6 +794,6 @@ body.ibar #verTag{display:none}
 <div id="ui"></div>
 <div id="flash" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#eaf2ff;opacity:0;pointer-events:none;z-index:5"></div>
 <div id="rot" class="hide">Gira el teléfono<br>para jugar en vertical</div>
-<script src="game.js?v=3.60"></script>
+<script src="game.js?v=3.61"></script>
 </body>
 </html>
