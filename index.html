@@ -392,6 +392,12 @@ body.drop #downed{top:calc(var(--mmW) + 70px + var(--sat))}
 #specBar{display:none;position:absolute;left:50%;bottom:calc(18px + var(--sab));transform:translateX(-50%);align-items:center;gap:8px;padding:6px;border-radius:30px;background:rgba(12,17,30,.82);border:1px solid rgba(255,255,255,.15);pointer-events:auto;z-index:4;max-width:92vw}
 #specBar button{width:46px;height:46px;border-radius:23px;border:0;background:#2b3550;color:#fff;font:900 24px system-ui}
 #specTxt{min-width:150px;text-align:center;font-weight:800;font-size:15px;color:#e8ecf6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* barra «Viendo a…» más chica: no se come la pantalla */
+#specBar{bottom:calc(8px + var(--sab));padding:4px;gap:6px}
+#specBar button{width:38px;height:38px;border-radius:19px;font-size:20px}
+#specTxt{font-size:13.5px;min-width:130px}
+#bSpKill{font-size:13px;padding:7px 13px}
+#bSpScroll{font-size:12.5px;padding:7px 12px}
 body.spec #specBar{display:flex}
 body.watch #joy, body.watch #btns, body.watch #bRefall{display:none!important}
 body.spec #joy, body.spec #btns, body.spec #downed, body.spec #bRefall, body.spec #spect{display:none!important}
@@ -557,7 +563,7 @@ body.mapbig #bIns, body.party #bIns{display:none}
 #bSpScroll{position:absolute;right:10px;bottom:calc(112px + var(--sab));z-index:6;pointer-events:auto;border:2px solid rgba(255,255,255,.5);border-radius:999px;background:rgba(13,18,30,.92);color:#fff;font:800 13px system-ui;padding:8px 13px;white-space:nowrap;max-width:70vw;overflow:hidden;text-overflow:ellipsis;box-shadow:0 4px 14px rgba(0,0,0,.5)}
 #bSpScroll small{font-weight:700;opacity:.8}
 /* controles del ninja al que miras: solo para ver (no se pueden tocar) */
-#eyeIn{position:absolute;left:8px;bottom:calc(200px + var(--sab));width:222px;box-sizing:border-box;padding:5px 7px 6px;border-radius:12px;background:rgba(10,14,26,.66);border:1.5px dashed rgba(255,255,255,.38);pointer-events:none;z-index:3;--tc:#fff}
+#eyeIn{position:absolute;left:8px;bottom:calc(200px + var(--sab));width:204px;box-sizing:border-box;padding:5px 7px 6px;border-radius:12px;background:rgba(10,14,26,.66);border:1.5px dashed rgba(255,255,255,.38);pointer-events:none;z-index:3;--tc:#fff}
 #eyeIn.hide{display:none}
 #eyeIn .eT{font-size:10.5px;font-weight:800;color:#dfe5f2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:5px}
 #eyeIn .eT small{font-weight:700;color:#9aa6c0;margin-left:6px;font-size:9px;font-style:italic}
@@ -567,7 +573,7 @@ body.mapbig #bIns, body.party #bIns{display:none}
 #eyeIn .eStk.mv i{background:var(--tc);box-shadow:0 0 8px var(--tc)}
 #eyeIn .eStk.on{animation:eyeS .35s ease-out}
 @keyframes eyeS{0%{border-color:#fff;box-shadow:0 0 10px var(--tc)}100%{}}
-#eyeIn .eK{display:grid;grid-template-columns:repeat(4,36px);gap:3px}
+#eyeIn .eK{display:grid;grid-template-columns:repeat(4,32px);gap:3px}
 #eyeIn .eK b{position:relative;height:32px;border-radius:8px;border:1.5px solid rgba(255,255,255,.3);color:#e8ecf6;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;font-weight:900}
 #eyeIn .eK b .ic{height:14px;line-height:14px;font-size:11px;position:relative;z-index:1}
 #eyeIn .eK b svg{width:14px;height:14px}
