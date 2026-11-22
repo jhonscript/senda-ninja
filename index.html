@@ -573,6 +573,13 @@ body.mapbig #bIns, body.party #bIns{display:none}
 #bSpKill{position:absolute;left:50%;bottom:calc(64px + var(--sab));transform:translateX(-50%);z-index:6;pointer-events:auto;border:2px solid #fff3c4;border-radius:999px;background:rgba(13,18,30,.92);color:#fff;font:800 14px system-ui;padding:9px 16px;white-space:nowrap;max-width:92vw;box-shadow:0 4px 14px rgba(0,0,0,.5);animation:spkp .7s ease-in-out infinite alternate}
 #bSpScroll{position:absolute;right:10px;bottom:calc(112px + var(--sab));z-index:6;pointer-events:auto;border:2px solid rgba(255,255,255,.5);border-radius:999px;background:rgba(13,18,30,.92);color:#fff;font:800 13px system-ui;padding:8px 13px;white-space:nowrap;max-width:70vw;overflow:hidden;text-overflow:ellipsis;box-shadow:0 4px 14px rgba(0,0,0,.5)}
 #bSpScroll small{font-weight:700;opacity:.8}
+#ghost{position:absolute;left:8px;bottom:calc(200px + var(--sab));z-index:6;display:flex;gap:6px;flex-wrap:wrap;pointer-events:none}
+#ghost.hide{display:none}
+#ghost button{pointer-events:auto;min-height:44px;border-radius:999px;padding:6px 13px;font:800 13px/1.15 inherit;color:#e9fbff;background:rgba(18,40,58,.92);border:2px solid #8fe3ff;box-shadow:0 0 12px rgba(143,227,255,.35)}
+#ghost button small{display:block;font-weight:700;font-size:11px;opacity:.85}
+#ghost button.off{opacity:.55;border-color:rgba(255,255,255,.35);box-shadow:none}
+#ghost button.hide{display:none}
+#bGhPing{border-color:#ffd76a!important;color:#fff3c4!important}
 /* controles del ninja al que miras: solo para ver (no se pueden tocar) */
 #eyeIn{position:absolute;left:8px;bottom:calc(200px + var(--sab));width:204px;box-sizing:border-box;padding:5px 7px 6px;border-radius:12px;background:rgba(10,14,26,.66);border:1.5px dashed rgba(255,255,255,.38);pointer-events:none;z-index:3;--tc:#fff}
 #eyeIn.hide{display:none}
@@ -682,6 +689,7 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
   <div id="spect" class="hide"></div>
   <button id="bSpKill" class="hide"></button>
   <button id="bSpScroll" class="hide"></button>
+  <div id="ghost" class="hide"><button id="bGhPing">🗿 ¡Recojan mi tótem!</button><button id="bGhPush"></button></div>
   <div id="eyeIn" class="hide"></div>
   <div id="count" class="hide"></div>
   <button id="bDive" class="hide" data-key="Espacio">PICADA</button>
