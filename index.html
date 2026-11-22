@@ -260,6 +260,16 @@ body.party.ibar #c,body.party.ibar #hud{height:100%}
 .lb.me.rg .hb{box-shadow:0 0 0 1px #9dffb3,0 0 9px rgba(95,227,127,.9)}
 @keyframes lowb{from{opacity:1}to{opacity:.45}}
 .tp.hmid .hb i{background:#ffb347!important}.tp.hlow .hb i{background:#ff4d4d!important}
+/* derribado: el mundo pierde el color, bordes oscuros que laten despacio y el aviso grande al caer; mientras te levantan
+   el color vuelve poco a poco */
+#c{transition:filter .5s}
+body.dwn #c{filter:grayscale(var(--dwnG,.9)) brightness(.78) contrast(1.05)}
+#downfx{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 40%,rgba(20,24,40,.55) 72%,rgba(8,10,20,.9) 100%)}
+body.dwn #downfx{opacity:1;animation:dwnp 1.6s ease-in-out infinite}
+@keyframes dwnp{0%,100%{filter:brightness(1)}50%{filter:brightness(1.35)}}
+#downfx b{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%) scale(.6);font:900 38px system-ui;letter-spacing:.12em;color:#fff;text-shadow:0 0 18px #ff5d5d,0 3px 0 #6b0f0f;opacity:0}
+#downfx.hit b{animation:dwnt 1.8s ease-out forwards}
+@keyframes dwnt{0%{opacity:0;transform:translate(-50%,-50%) scale(1.8)}15%{opacity:1;transform:translate(-50%,-50%) scale(1)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(.95)}}
 #lowhp{position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse at center,rgba(255,0,0,0) 44%,rgba(200,0,0,.46) 74%,rgba(160,0,0,.85) 100%);transition:opacity .25s}
 #lowhp.beat{animation:lowbeat .62s ease-in-out infinite}
 #lowhp::after{content:"";position:absolute;left:0;top:0;right:0;bottom:0;background:var(--cracks) center/100% 100% no-repeat;opacity:0;transition:opacity .3s}
@@ -714,6 +724,7 @@ body.ibar #verTag{display:none}
 
 <div id="hud" class="hide">
   <div id="lowhp"></div>
+  <div id="downfx"><b>DERRIBADO</b></div>
   <div id="furyfx"><i></i></div>
   <div id="ins" class="hide"><div class="bagH"><b>Jugadores</b><button class="bagX" aria-label="Cerrar">✕</button></div><div id="insL"></div></div>
   <div id="bag" class="hide"><div class="bagH"><b>Mochila</b><button class="bagX" aria-label="Cerrar">✕</button></div><div id="bagL"></div><div class="bagN">Lo que sueltes queda a tus pies: un compañero lo toma al pasar (un rival también). Tú no lo vuelves a tomar hasta que te alejes.</div></div>
@@ -777,6 +788,6 @@ body.ibar #verTag{display:none}
 <div id="ui"></div>
 <div id="flash" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#eaf2ff;opacity:0;pointer-events:none;z-index:5"></div>
 <div id="rot" class="hide">Gira el teléfono<br>para jugar en vertical</div>
-<script src="game.js?v=3.58"></script>
+<script src="game.js?v=3.59"></script>
 </body>
 </html>
