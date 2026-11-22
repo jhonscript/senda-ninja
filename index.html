@@ -285,6 +285,15 @@ body.party.ibar #c,body.party.ibar #hud{height:100%}
 @keyframes pulse{from{transform:scale(1)}to{transform:scale(1.12)}}
 #edge{position:absolute;left:0;top:0;width:50px;height:50px;margin:-25px 0 0 -25px;border-radius:50%;background:rgba(13,18,30,.82);border:2px solid currentColor;will-change:transform}
 #edge .rot{position:absolute;left:0;top:0;width:100%;height:100%}
+/* compañeros fuera de la pantalla: círculo verde con su número y flecha hacia él */
+#aedges{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.aedge{position:absolute;left:0;top:0;width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;background:rgba(10,14,24,.85);border:2px solid #5fe37f;color:#5fe37f;will-change:transform}
+.aedge.hide{display:none}
+.aedge .rot{position:absolute;left:0;top:0;width:100%;height:100%}
+.aedge .rot i{position:absolute;left:50%;top:-10px;margin-left:-7px;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:9px solid #5fe37f}
+.aedge span{position:absolute;left:0;right:0;top:5px;text-align:center;font:900 15px/1 system-ui,sans-serif}
+.aedge small{position:absolute;left:0;right:0;bottom:3px;text-align:center;font-size:8.5px;font-weight:900;color:#fff}
+body.mapbig #aedges,body.drop #aedges,body.party #aedges{display:none}
 #edge .rot i{position:absolute;left:50%;top:-11px;margin-left:-8px;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:11px solid currentColor}
 #edge .ic{position:absolute;left:11px;top:6px;width:26px;height:26px}#edge .ic svg{width:100%;height:100%}
 #edge small{position:absolute;left:0;right:0;bottom:3px;text-align:center;font-size:9.5px;font-weight:900;color:#fff}
@@ -326,6 +335,8 @@ body.party.ibar #c,body.party.ibar #hud{height:100%}
 #alive{font-size:11.5px;font-weight:800;margin-top:2px;text-shadow:0 1px 3px #000}
 #alive i{display:inline-block;width:9px;height:9px;border-radius:50%;margin:0 2px}
 #alive i.x{opacity:.22}
+#alive small.mk{display:inline-block;margin-top:3px;padding:1px 8px;border-radius:999px;background:rgba(13,18,30,.75);color:#ffd76a;font-size:11px}
+body.land #alive small.mk{margin:0 0 0 6px;padding:0 6px}
 #mm{position:relative;width:104px;flex:none}
 #mini{width:104px;height:104px;border-radius:12px;background:rgba(13,18,30,.75);border:1px solid rgba(255,255,255,.25);display:block}
 #bMenu{position:absolute;right:0;top:110px;width:44px;height:38px;border-radius:10px;background:rgba(13,18,30,.75);border:1px solid rgba(255,255,255,.25);font-size:18px;font-weight:900;pointer-events:auto}
