@@ -425,16 +425,45 @@ body.spec #joy, body.spec #btns, body.spec #downed, body.spec #bRefall, body.spe
 #bSpecL{bottom:298px}
 body.party #bSpecA, body.party #bSpecL{display:none!important}
 /* celular de lado: las técnicas en fila abajo, a la izquierda de la esquiva y la estrella (no suben hasta el minimapa) */
-body.land #btns{width:410px;height:190px}
-body.land #bMelee{right:18px;bottom:26px}
-body.land #bShur{right:120px;bottom:12px}
-body.land #bDash{right:116px;bottom:92px}
-body.land #bSpec,body.land #bSpecA,body.land #bSpecL{width:56px;height:56px;bottom:14px}
-body.land #bSpec{right:196px}
-body.land #bSpecA{right:260px}
-body.land #bSpecL{right:324px}
-body.land #bBurn{right:198px;bottom:86px}
 body.land #me{bottom:calc(158px + var(--sab))}
+/* ---- de lado (celular horizontal), ordenado por zonas, nada encima de otra cosa ----
+   arriba izq: compañeros y, debajo, tu tarjeta · arriba centro: reloj en dos renglones y la lista de lo que pasa ·
+   arriba der: minimapa con sus tres botones debajo · abajo izq: palanca · abajo der: espada en la esquina, salto
+   encima, estrella y las tres técnicas en fila a su izquierda · barra de abajo en un solo renglón */
+body.land{--ibarH:30px}
+body.land #ibar{flex-direction:row;align-items:stretch}
+body.land #obj{flex:1 1 55%;height:auto}
+body.land #banner{flex:1 1 45%;height:auto;border-top:0;border-left:1px solid rgba(255,255,255,.1)}
+body.land #team{max-width:170px}
+body.land #mid{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 8px;align-content:flex-start}
+body.land #clock{font-size:22px}
+body.land #clockSub,body.land #alive{font-size:10.5px;margin:0}
+body.land #clockSub:not(:empty)+#alive::before{content:'· ';opacity:.7}
+body.land #mid>#clockSub{flex-basis:auto}
+body.land #mid::after{content:'';order:1;flex-basis:100%;height:0}
+body.land #phase,body.land #clock{order:0}
+body.land #clockSub,body.land #alive{order:2}
+body.land #mm,body.land #mini{width:86px}
+body.land #mini{height:86px}
+body.land #bMenu,body.land #bBag,body.land #bIns{top:92px;width:40px;height:34px;font-size:16px}
+body.land #bBag{right:46px}
+body.land #bIns{right:92px}
+body.land #bBag.hide + #bIns{right:46px}
+body.land #ping{top:94px}
+body.land #feed{left:50%;right:auto;transform:translateX(-50%);width:max-content;max-width:min(360px,46vw);text-align:center;max-height:38px;font-size:11px}
+body.land #me{width:min(176px,30vw)}
+body.land #btns{width:340px;height:170px}
+body.land #bMelee{width:78px;height:78px;right:12px;bottom:12px}
+body.land #bDash{width:56px;height:56px;right:23px;bottom:100px}
+body.land #bShur{width:56px;height:56px;right:100px;bottom:12px}
+body.land #bSpec,body.land #bSpecA,body.land #bSpecL{width:52px;height:52px;bottom:14px}
+body.land #bSpec{right:166px}
+body.land #bSpecA{right:224px}
+body.land #bSpecL{right:282px}
+body.land #bBurn{width:54px;height:54px;right:98px;bottom:80px}
+body.land #bKill{right:98px;bottom:80px}
+body.land #alive,body.land #alive small{white-space:nowrap;display:inline}
+body.land #alive small{margin-left:5px}
 body.land #joyB{top:calc(100% - 84px)}
 body.land #joy{width:50%;height:64%}
 #bBurn{width:66px;height:66px;right:104px;bottom:272px;border:3px solid #ffd2a6;background:radial-gradient(#ffa24d,#c8321a);animation:killp .5s ease-in-out infinite alternate}
