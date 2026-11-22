@@ -609,6 +609,12 @@ body.spec #bSpKill{bottom:calc(116px + var(--sab))}
 #bKill{width:66px;height:66px;right:104px;bottom:196px;border:3px solid #fff3c4;background:radial-gradient(#ffcf4a,#e0561a);animation:killp .5s ease-in-out infinite alternate}
 #bKill b{position:relative;z-index:1;font:900 11.5px system-ui;letter-spacing:.04em;color:#2a1205}
 #bKill.hide{display:none}
+/* cargar / soltar a un derribado */
+#bCarry{width:66px;height:66px;right:104px;bottom:196px;border:3px solid #cfe8ff;background:radial-gradient(#5aa9ff,#1f4f9a)}
+#bCarry b{position:relative;z-index:1;font:900 11px system-ui;letter-spacing:.03em;color:#fff}
+#bCarry.hide{display:none}
+#bCarry.drop{background:radial-gradient(#8a93a6,#3a4152)}
+body.land #bCarry{width:54px;height:54px;right:94px;bottom:76px}
 #bKill.off{background:rgba(18,24,40,.72);border-color:rgba(255,255,255,.35);animation:none}
 #bKill.off b{color:rgba(255,255,255,.5)}
 /* con teclado: la tecla de cada botón, en chiquito */
@@ -690,6 +696,7 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
     <!-- el remate es automático: el botón ya no se muestra -->
     <button class="ab off" id="bKill" data-act="remate" data-key="F" style="display:none"><b>REMATE</b></button>
     <button class="ab hide" id="bBurn" data-act="burn" data-key="B"><i></i><b>FURIA</b></button>
+    <button class="ab hide" id="bCarry" data-act="carry" data-key="E"><b>CARGAR</b></button>
   </div>
 </div>
 <!-- abajo del todo, fuera del juego: el objetivo y, debajo, el aviso del momento -->
