@@ -241,6 +241,11 @@ body.party #ibar{display:none}
 .lb .pw:empty{display:none}
 .lb .pw i{width:7px;height:7px;border-radius:50%;box-shadow:0 0 6px currentColor,0 0 2px #000}
 .lb.ally .hb i{background:#5fe37f}
+/* compañero o rival, de un vistazo: compañero con flecha verde encima y nombre en cinta verde; rival en cinta roja */
+.lb.ally .nm,.lb.foe .nm{display:inline-block;max-width:100%;box-sizing:border-box;padding:0 5px;border-radius:7px;background:rgba(10,14,24,.62)}
+.lb.ally .nm{box-shadow:inset 0 0 0 1.5px #5fe37f}
+.lb.foe .nm{box-shadow:inset 0 0 0 1.5px rgba(255,93,93,.85)}
+.lb.ally::before{content:'';display:block;width:0;height:0;margin:0 auto 1px;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid #5fe37f;filter:drop-shadow(0 1px 1px #000)}
 .lb.me{width:104px;margin-left:-52px}
 .lb.me .nm{font-size:11px}
 .lb.me .hb{position:relative;height:10px;margin:2px 26px 0 6px;border:1.5px solid #000;border-radius:5px;background:rgba(0,0,0,.65);overflow:visible;box-shadow:0 0 0 1px rgba(255,255,255,.55)}
@@ -335,6 +340,7 @@ body.party #ibar{display:none}
 #me{position:absolute;left:10px;bottom:calc(192px + var(--sab));width:min(190px,48vw);pointer-events:none;flex-direction:column;gap:5px;z-index:2}
 #me .mN{font-size:12px;font-weight:900;color:#fff;text-shadow:0 1px 2px #000,0 0 3px #000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #me .mN:empty{display:none}
+#me .mN .tdot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px;box-shadow:0 0 0 1.5px #fff,0 0 4px #000}
 #me .mH{position:relative;display:flex;align-items:center;gap:7px}
 #me .mB{flex:1;height:16px;border-radius:8px;background:rgba(0,0,0,.62);border:2px solid rgba(255,255,255,.9);box-shadow:0 2px 6px rgba(0,0,0,.55);overflow:hidden}
 #me .mB i{display:block;height:100%;width:100%;background:linear-gradient(180deg,#fff,#d6dbe6);transition:width .15s linear}
