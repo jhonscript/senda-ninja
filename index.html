@@ -241,11 +241,12 @@ body.party #ibar{display:none}
 .lb .pw:empty{display:none}
 .lb .pw i{width:7px;height:7px;border-radius:50%;box-shadow:0 0 6px currentColor,0 0 2px #000}
 .lb.ally .hb i{background:#5fe37f}
-/* compañero o rival, de un vistazo: compañero con flecha verde encima y nombre en cinta verde; rival en cinta roja */
-.lb.ally .nm,.lb.foe .nm{display:inline-block;max-width:100%;box-sizing:border-box;padding:0 5px;border-radius:7px;background:rgba(10,14,24,.62)}
-.lb.ally .nm{box-shadow:inset 0 0 0 1.5px #5fe37f}
-.lb.foe .nm{box-shadow:inset 0 0 0 1.5px rgba(255,93,93,.85)}
-.lb.ally::before{content:'';display:block;width:0;height:0;margin:0 auto 1px;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid #5fe37f;filter:drop-shadow(0 1px 1px #000)}
+/* compañero o rival, de un vistazo: compañero con nombre verde y su número verde con flecha encima; rival con nombre rojo */
+.lb.ally .nm,.lb.foe .nm{display:inline-block;max-width:100%;box-sizing:border-box;padding:0 5px;border-radius:7px;background:rgba(10,14,24,.55)}
+.lb .an{position:absolute;left:50%;bottom:100%;width:19px;height:19px;margin:0 0 9px -11.5px;border-radius:50%;background:rgba(10,14,24,.85);border:2px solid #5fe37f;color:#5fe37f;font:900 12px/19px system-ui,sans-serif;text-align:center;box-shadow:0 1px 3px #000}
+.lb .an::after{content:'';position:absolute;left:50%;top:100%;margin:2px 0 0 -5px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #5fe37f}
+.lb.ally .scr{bottom:calc(100% + 30px)}
+.tp .tn{display:inline-block;min-width:15px;height:15px;margin-right:5px;border-radius:50%;border:1.5px solid #5fe37f;color:#5fe37f;font:900 10px/15px system-ui,sans-serif;text-align:center;font-style:normal;vertical-align:1px}
 .lb.me{width:104px;margin-left:-52px}
 .lb.me .nm{font-size:11px}
 .lb.me .hb{position:relative;height:10px;margin:2px 26px 0 6px;border:1.5px solid #000;border-radius:5px;background:rgba(0,0,0,.65);overflow:visible;box-shadow:0 0 0 1px rgba(255,255,255,.55)}
@@ -398,7 +399,8 @@ body.spec #joy, body.spec #btns, body.spec #downed, body.spec #bRefall, body.spe
 #vig{position:absolute;left:0;top:0;width:100%;height:100%;box-shadow:inset 0 0 90px 30px rgba(140,60,255,.65);opacity:0;transition:opacity .3s}
 #hurt{position:absolute;left:0;top:0;width:100%;height:100%;box-shadow:inset 0 0 70px 12px rgba(255,40,40,.6);opacity:0}
 #stale{position:absolute;left:0;right:0;top:46%;text-align:center;font-size:14px;font-weight:800;text-shadow:0 1px 3px #000}
-#joy{position:absolute;left:0;bottom:0;width:56%;height:52%;pointer-events:auto;touch-action:none}
+/* la palanca es fija: su zona de toque es solo un cuadro alrededor de ella (lo demás de la pantalla mueve la cámara) */
+#joy{position:absolute;left:0;bottom:0;width:210px;height:236px;pointer-events:auto;touch-action:none}
 #joyB{position:absolute;width:124px;height:124px;margin:-62px 0 0 -62px;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3);left:92px;top:calc(100% - 118px);opacity:.55}
 #joyB.on{opacity:1}
 #joyK{position:absolute;left:50%;top:50%;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.55);transform:translate(-50%,-50%)}
@@ -437,41 +439,55 @@ body.land #me{bottom:calc(158px + var(--sab))}
    arriba der: minimapa con sus tres botones debajo · abajo izq: palanca · abajo der: espada en la esquina, salto
    encima, estrella y las tres técnicas en fila a su izquierda · barra de abajo en un solo renglón */
 body.land{--ibarH:30px}
+#tick{display:none}
 body.land #ibar{flex-direction:row;align-items:stretch}
-body.land #obj{flex:1 1 55%;height:auto}
-body.land #banner{flex:1 1 45%;height:auto;border-top:0;border-left:1px solid rgba(255,255,255,.1)}
+body.land #obj{flex:1 1 36%;height:auto}
+body.land #banner{flex:1 1 34%;height:auto;border-top:0;border-left:1px solid rgba(255,255,255,.1)}
+/* de lado, lo último que pasó (tomó el pergamino, derribó a…) va en la barra, a la derecha */
+body.land #tick{display:flex;align-items:center;flex:1 1 30%;min-width:0;padding:0 10px;border-left:1px solid rgba(255,255,255,.1);font-size:12px;font-weight:700;color:#e7dcc5;white-space:nowrap;overflow:hidden;transition:opacity .4s}
+body.land #tick>*{overflow:hidden;text-overflow:ellipsis}
+body.land #tick.old{opacity:.45}
+body.land #feed{display:none!important}
 body.land #team{max-width:170px}
 body.land #mid{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 8px;align-content:flex-start}
 body.land #clock{font-size:22px}
 body.land #clockSub,body.land #alive{font-size:10.5px;margin:0}
 body.land #clockSub:not(:empty)+#alive::before{content:'· ';opacity:.7}
-body.land #mid>#clockSub{flex-basis:auto}
 body.land #mid::after{content:'';order:1;flex-basis:100%;height:0}
 body.land #phase,body.land #clock{order:0}
 body.land #clockSub,body.land #alive{order:2}
-body.land #mm,body.land #mini{width:86px}
-body.land #mini{height:86px}
-body.land #bMenu,body.land #bBag,body.land #bIns{top:92px;width:40px;height:34px;font-size:16px}
-body.land #bBag{right:46px}
-body.land #bIns{right:92px}
-body.land #bBag.hide + #bIns{right:46px}
-body.land #ping{top:94px}
-body.land #feed{left:50%;right:auto;transform:translateX(-50%);width:max-content;max-width:min(360px,46vw);text-align:center;max-height:38px;font-size:11px}
-body.land #me{width:min(176px,30vw)}
+/* minimapa chico arriba a la derecha y sus tres botones en columna a su izquierda (así abajo queda libre) */
+body.land:not(.mapbig) #mm,body.land:not(.mapbig) #mini{width:78px}
+body.land:not(.mapbig) #mini{height:78px}
+body.land:not(.mapbig) #bMenu,body.land:not(.mapbig) #bBag,body.land:not(.mapbig) #bIns{right:84px;width:42px;height:24px;font-size:13px;border-radius:8px}
+body.land:not(.mapbig) #bMenu{top:0}
+body.land:not(.mapbig) #bBag{top:27px}
+body.land:not(.mapbig) #bIns{top:54px}
+body.land:not(.mapbig) #bBag.hide + #bIns{right:84px;top:27px}
+body.land #ping{display:none}
+/* mapa abierto de lado: del alto que quede, a la izquierda del centro, con pausa a su lado */
+body.land.mapbig{--mmW:calc(100vh - var(--ibarH) - var(--sab) - 16px)}
+body.land.mapbig #mm{top:6px}
+body.land.mapbig #bMenu{top:0;bottom:auto;left:auto;right:calc(100% + 10px)}
+body.land #me{width:min(176px,30vw);gap:3px}
+body.land:not(.mapbig) #mid{margin-right:52px}
+/* palanca un poco más chica y abajo, para que no la tape tu tarjeta en pantallas bajitas */
+body.land #joyB{width:104px;height:104px;margin:-52px 0 0 -52px;left:72px;top:calc(100% - 58px)}
+body.land #joyK{width:46px;height:46px}
 body.land #btns{width:340px;height:170px}
-body.land #bMelee{width:78px;height:78px;right:12px;bottom:12px}
-body.land #bDash{width:56px;height:56px;right:23px;bottom:100px}
-body.land #bShur{width:56px;height:56px;right:100px;bottom:12px}
-body.land #bSpec,body.land #bSpecA,body.land #bSpecL{width:52px;height:52px;bottom:14px}
-body.land #bSpec{right:166px}
-body.land #bSpecA{right:224px}
-body.land #bSpecL{right:282px}
-body.land #bBurn{width:54px;height:54px;right:98px;bottom:80px}
-body.land #bKill{right:98px;bottom:80px}
+body.land #bMelee{width:74px;height:74px;right:12px;bottom:10px}
+body.land #bDash{width:54px;height:54px;right:22px;bottom:92px}
+body.land #bShur{width:54px;height:54px;right:96px;bottom:10px}
+body.land #bSpec,body.land #bSpecA,body.land #bSpecL{width:50px;height:50px;bottom:12px}
+body.land #bSpec{right:160px}
+body.land #bSpecA{right:216px}
+body.land #bSpecL{right:272px}
+body.land #bBurn{width:52px;height:52px;right:94px;bottom:76px}
+body.land #bKill{right:94px;bottom:76px}
 body.land #alive,body.land #alive small{white-space:nowrap;display:inline}
 body.land #alive small{margin-left:5px}
-body.land #joyB{top:calc(100% - 84px)}
-body.land #joy{width:50%;height:64%}
+
+body.land #joy{width:170px;height:150px}
 #bBurn{width:66px;height:66px;right:104px;bottom:272px;border:3px solid #ffd2a6;background:radial-gradient(#ffa24d,#c8321a);animation:killp .5s ease-in-out infinite alternate}
 #bBurn i{position:absolute;left:50%;top:9px;width:36px;height:18px;margin-left:-18px;display:flex;gap:0}
 #bBurn i svg{width:18px;height:18px}
@@ -648,7 +664,7 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
   </div>
 </div>
 <!-- abajo del todo, fuera del juego: el objetivo y, debajo, el aviso del momento -->
-<div id="ibar"><div id="obj"></div><div id="banner"></div></div>
+<div id="ibar"><div id="obj"></div><div id="banner"></div><div id="tick"></div></div>
 
 <div id="ui"></div>
 <div id="flash" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#eaf2ff;opacity:0;pointer-events:none;z-index:5"></div>
