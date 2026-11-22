@@ -628,6 +628,22 @@ body.spec #bSpKill{bottom:calc(116px + var(--sab))}
 #bCarry.drop{background:radial-gradient(#8a93a6,#3a4152)}
 body.land #bCarry{width:54px;height:54px;right:94px;bottom:76px}
 #bKill.off{background:rgba(18,24,40,.72);border-color:rgba(255,255,255,.35);animation:none}
+/* manejando un Mecha: solo su ataque, cargar, VOLVER y MECHAS */
+body.mechctl #btns > *:not(#bMelee):not(#bCarry):not(#bMech):not(#bBack){display:none!important}
+#bBack{display:none}
+body.mechctl #bBack{display:flex;flex-direction:column;align-items:center;justify-content:center;width:66px;height:66px;right:118px;bottom:118px;border:3px solid #ffd76a;background:radial-gradient(circle at 50% 35%,#8a6a22,#2a1e06 75%)}
+body.land.mechctl #bBack{width:58px;height:58px;right:22px;bottom:92px}
+#bBack span{font-size:22px;line-height:1}
+#bBack b{font:900 10px system-ui;letter-spacing:.04em;color:#fff3c4}
+#bBack.off{opacity:.45;border-color:rgba(255,255,255,.35)}
+#bMelee .mAtk{display:none}
+body.mechctl #bMelee svg{display:none}
+body.mechctl #bMelee{background:radial-gradient(circle at 50% 35%,#3e7fb0,#122238 75%);border-color:#7df9ff}
+body.mechctl #bMelee .mAtk{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;font:900 11px system-ui;letter-spacing:.03em;color:#e8fdff}
+body.mechctl #bMelee .mAtk span{font-size:30px;line-height:1.1}
+#mechMenu .mi.here{border-color:#5fe37f;box-shadow:0 0 0 3px rgba(95,227,127,.35)}
+#mechMenu .mi.here small{color:#9ff0b0;opacity:1}
+#mechMenu .mi.launch{border-style:dashed}
 #bMech{width:64px;height:64px;right:26px;bottom:370px;border:3px solid #7df9ff;background:radial-gradient(circle at 50% 35%,#3e7fb0,#122238 75%);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(125,249,255,.25),0 0 16px rgba(125,249,255,.55);animation:mechp 1.6s ease-in-out infinite alternate;overflow:visible}
 @keyframes mechp{from{box-shadow:0 0 0 2px rgba(125,249,255,.2),0 0 10px rgba(125,249,255,.4)}to{box-shadow:0 0 0 5px rgba(125,249,255,.35),0 0 22px rgba(125,249,255,.8)}}
 #bMech.hide{display:none}
@@ -739,6 +755,7 @@ body.watch #spect{bottom:calc(22px + var(--sab));font-size:14px;padding:7px 16px
     <button class="ab" id="bMelee" data-act="melee" data-key="Clic"></button>
     <!-- remate: con el botón; en furia sale solo -->
     <button class="ab off" id="bKill" data-act="remate" data-key="F"><b>REMATE</b></button>
+    <button class="ab" id="bBack" aria-label="Volver a mi ninja"></button>
     <button class="ab hide" id="bMech" aria-label="Mechas"><span>🤖</span><b>MECHAS</b><i></i></button>
     <button class="ab hide" id="bBurn" data-act="burn" data-key="B"><i></i><b>FURIA</b></button>
     <button class="ab hide" id="bCarry" data-act="carry" data-key="E"><b>CARGAR</b></button>
